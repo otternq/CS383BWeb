@@ -3,7 +3,41 @@
 
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
 	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script></head>
+	<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+	
+	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	<script type="text/javascript">
+		google.load('visualization', '1', {packages: ['table']});
+	</script>
+	<script type="text/javascript">
+	function drawVisualization()
+	{
+		// Create and populate the data table.
+		var data = google.visualization.arrayToDataTable([
+			['Week', 'Days', 'General Plan'],
+			['1', '09/03 - 09/07', '--------------------'],
+			['2', '09/10 - 09/14', 'Meet w/ Customer; Implement Reddit, and a news source'],
+			['3', '09/17 - 09/21', 'Start documents; implement input validation'],
+			['4', '09/24 - 09/28', 'Test plan; test data; test results for Part 1'],
+			['5', '10/01 - 10/05', 'Design document - stats modeling'],
+			['6', '10/08 - 10/12', 'Algorithm prototyping and testing; customer meeting'],
+			['7', '10/15 - 10/19', ' '],
+			['8', '10/22 - 10/26', ' '],
+			['9', '10/29 - 11/02', 'Design output, start prototyping; test'],
+			['10', '11/05 - 11/09', 'output prototyping'],
+			['11', '11/12 - 11/16', 'output prototyping'],
+			['12', '11/19 - 11/23', 'Write manual - (HTML)'],
+			['13', '11/26 - 11/30', 'Finish documentation']
+		]);
+		
+		// Create and draw the visualization.
+		visualization = new google.visualization.Table(document.getElementById('table'));
+		visualization.draw(data, null);
+	}
+    
+	google.setOnLoadCallback(drawVisualization);
+	</script>
+</head>
 
 <body>
 	<div data-role="header">
@@ -11,95 +45,8 @@
 		<h1>I-Team - Schedule</h1>
 	</div>
 	<div data-role="content">
-	
-	<a data-role="button" href="./schedule/current.docx">Current Schedule (.docx)</a>
-	
-	<table>
-		<tr>
-			<td>Week</td>
-			<td>Days</td>
-			<td>General Plan</td>
-		</tr>
-		
-		<tr>
-			<td>1</td>
-			<td>09/03 - 09/07</td>
-			<td>--------------------</td>
-		</tr>
-		
-		<tr>
-			<td>2</td>
-			<td>09/10 - 09/14</td>
-			<td>Meet w/ Customer; Implement Reddit, and a news source</td>
-		</tr>
-		
-		<tr>
-			<td>3</td>
-			<td>09/17 - 09/21</td>
-			<td>Start documents; implement input validation</td>
-		</tr>
-		
-		<tr>
-			<td>4</td>
-			<td>09/24 - 09/28</td>
-			<td>Test plan; test data; test results for Part 1</td>
-		</tr>
-		
-		<tr>
-			<td>5</td>
-			<td>10/01 - 10/05</td>
-			<td>Design document - stats modeling</td>
-		</tr>
-		
-		<tr>
-			<td>6</td>
-			<td>10/08 - 10/12</td>
-			<td>Algorithm prototyping and testing; customer meeting</td>
-		</tr>
-		
-		<tr>
-			<td>7</td>
-			<td>10/15 - 10/19</td>
-			<td>" "</td>
-		</tr>
-		
-		<tr>
-			<td>8</td>
-			<td>10/22 - 10/26</td>
-			<td>" "</td>
-		</tr>
-		
-		<tr>
-			<td>9</td>
-			<td>10/29 - 11/02</td>
-			<td>Design output, start prototyping; test</td>
-		</tr>
-		
-		<tr>
-			<td>10</td>
-			<td>11/05 - 11/09</td>
-			<td>output prototyping</td>
-		</tr>
-		
-		<tr>
-			<td>11</td>
-			<td>11/12 - 11/16</td>
-			<td>output prototyping</td>
-		</tr>
-		
-		<tr>
-			<td>12</td>
-			<td>11/19 - 11/23</td>
-			<td>Write manual - (HTML)</td>
-		</tr>
-		
-		<tr>
-			<td>13</td>
-			<td>11/26 - 11/30</td>
-			<td>Finish documentation</td>
-		</tr>
-	</table>
+		<a data-role="button" href="./schedule/current.docx">Current Schedule (.docx)</a>
 	</div>
-	
+	<div id="table"></div>
 </body>
 </html>
