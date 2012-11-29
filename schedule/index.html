@@ -1,0 +1,91 @@
+<html>
+<head><title>I-Team Schedule</title><meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+    
+    <link rel="stylesheet" href="http://admin.livesigns.net/resources/main.css" />
+    
+    <!-- style sheet for 960 Grid System -->
+    <link href="http://admin.livesigns.net/resources/960Grid/code/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="http://admin.livesigns.net/resources/960Grid/code/css/text.css" rel="stylesheet" type="text/css" />
+    <link href="http://admin.livesigns.net/resources/960Grid/code/css/960.css" rel="stylesheet" type="text/css" />
+    
+    
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	
+	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	<script type="text/javascript">
+		google.load('visualization', '1', {packages: ['table']});
+	</script>
+	<script type="text/javascript">
+	function drawVisualization()
+	{
+		// Create and populate the data table.
+		var data = google.visualization.arrayToDataTable([
+			['Week', 'Days', 'General Plan'],
+			['1', '09/03 - 09/07', '--------------------'],
+			['2', '09/10 - 09/14', 'Meet w/ Customer; Implement Reddit, and a news source'],
+			['3', '09/17 - 09/21', 'Start documents; implement input validation'],
+			['4', '09/24 - 09/28', 'Test plan; test data; test results for Part 1'],
+			['5', '10/01 - 10/05', 'Design document - stats modeling'],
+			['6', '10/08 - 10/12', 'Algorithm prototyping and testing; customer meeting'],
+			['7', '10/15 - 10/19', 'Algorithm prototyping'],
+			['8', '10/22 - 10/26', 'Algorithm prototyping'],
+			['9', '10/29 - 11/02', 'Design output, start prototyping; test'],
+			['10', '11/05 - 11/09', 'Output prototyping'],
+			['11', '11/12 - 11/16', 'Output prototyping'],
+			['12', '11/19 - 11/23', 'Write usermanual - (HTML)'],
+			['13', '11/26 - 11/30', 'Finish documentation']
+		]);
+		
+		// Create and draw the visualization.
+		visualization = new google.visualization.Table(document.getElementById('table'));
+		visualization.draw(data, null);
+	}
+    
+	google.setOnLoadCallback(drawVisualization);
+	</script>
+</head>
+
+<body>
+	<div class="container_12" data-role="page">
+        <div class="grid_8 push_1">
+            <h1>Social Stock</h1>
+        </div>
+        
+        <div class="grid_8 push_1">
+            <ul data-role="listview" id="nav">
+                <li><a rel="external" href="/">Home</a></li>
+                <li>
+                    <a>Documentation</a>
+                    <ul>
+                        <li>
+                            <a>Code Repo</a>
+                            <ul>
+                                <li><a href="//github.com/otternq/CS383B" target="_blank">System</a></li>
+                                <li><a href="//github.com/otternq/CS383BApp" target="_blank">App</a></li>
+                                <li><a href="//github.com/otternq/CS383BWeb" target="_blank">This Web Page</a></li>
+                            </ul>                
+                        </li>
+                        <li>
+                            <a href="//184.73.239.62:8080/job/SocialStock-Development/" target="_blank">PHP Tests and Documentation</a>
+                        </li>
+                        <li>
+                            <a href="//184.73.239.62/mantis/" target="_blank">Bug Tracker</a>
+                        </li>
+                        <li><a href="https://docs.google.com/document/d/19TjfjS6IL68Rg80tvBg1SMDdiAWFlTmRfuvtGGTxorw/edit#heading=h.70ueuit64g5m" target="_blank">Software Requirement Specification</a></li>
+                        <li><a href="https://docs.google.com/document/d/1HVfP53kzGubJTOl679oVf804lDHvN62alq5SYk_Q_sE/edit" target="_blank">Test Plan</a></li>
+                        <li><a href="https://docs.google.com/document/d/1M6sD_uKri1xjK4km8D0xYVRdmIL6Kyw3cXsP4-Yi968/edit" target="_blank">Software Design Document</a></li>
+                    </ul>
+                </li>
+                <li><a href="//app.socialstock.uni.me/" target="_blank">The App (web)</a></li>
+            </ul>
+            <div id="clear"></div>
+            <div id="clear"></div>
+            <div id="clear"></div>
+    		<a data-role="button" href="./current.docx">Current Schedule (.docx)</a>
+            <div id="table"></div>
+        </div>
+	</div>
+	
+</body>
+</html>
